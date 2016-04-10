@@ -48,8 +48,14 @@ body {
 
 @media screen and (max-width: 500px) {
   body {
-    background-color: red;
+    background-color: #b3f0ff;
   }
 }
-
+@media screen and (max-width: 500px) {
+ #external-links ul {
+  width: 100%;
+  float: none;
+  font-size: 1.4em;
+  background-color: #4dffc3;
+}
 
