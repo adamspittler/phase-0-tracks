@@ -18,3 +18,18 @@ Elevator algorithm:
 		- If "current floor" != "desired floor", wait for doors to close and repeat last step.
 		- If "current floor" = "desired floor" exit elevator.
 
+Ordering at a bar algorithm.
+	- If "want's drink" is true:
+	- Approach bar.
+	- Read menu behaind bar.
+	- Select "desired drink".
+	- Note value for "drink price as $x" next to "desired drink" on the menu.
+	- Wait for bartender to make eye contact.
+		- If bartender makes eye contact, say I'll have "desired drink".
+		- If Bartender does not make eye contact after helping every one that was waiting at the bar before you arrived, waive your hand at them and repeat previous step.
+	- Wait for bartender to bring you your drink. 
+		- If "drink price" <= $10 leave "drink price" + $1 on the bar.
+		- If "drink price" > $10 leave "drink price" + $2 on the bar.
+	- Enjoy drink.
+	- When drink is finished bring the glass back to the bar.
+	- If "want's drink" is true repeat from beginning.
