@@ -1,2 +1,20 @@
-html {
-	background-color: white;	
+header {
+   background-color: red;
+}
+
+.column-1 {
+  background-color: blue;
+  float: left;
+  width: 50%;
+}
+
+.column-2 {
+  background-color: green;
+  width: 50%;
+  float:right;
+}
+
+footer {
+  background-color: yellow;
+clear: both;  
+}	
