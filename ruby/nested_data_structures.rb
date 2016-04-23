@@ -1,0 +1,77 @@
+magic_bag = {
+	:magic_top_hat => [
+		"rabbit", 
+		"dove",
+		"second_dove"
+		],
+	:deck_of_cards => {
+		:spades => [
+			"ace",
+			"king",
+			"Queen",
+			"jack",
+			"ten",
+			"nine",
+			"eight",
+			"seven",
+			"six",
+			"five",
+			"four",
+			"three",
+			"two",
+			],
+			:hearts => [
+			"ace",
+			"king",
+			"Queen",
+			"jack",
+			"ten",
+			"nine",
+			"eight",
+			"seven",
+			"six",
+			"five",
+			"four",
+			"three",
+			"two",
+			],
+			:clubs => [
+			"ace",
+			"king",
+			"Queen",
+			"jack",
+			"ten",
+			"nine",
+			"eight",
+			"seven",
+			"six",
+			"five",
+			"four",
+			"three",
+			"two",
+			],
+			:diamonds => [
+			"ace",
+			"king",
+			"Queen",
+			"jack",
+			"ten",
+			"nine",
+			"eight",
+			"seven",
+			"six",
+			"five",
+			"four",
+			"three",
+			"two",
+			],
+	},
+	:change_of_clothes => [
+		"cape", 
+		"tuxedo",
+		"trick shoes"
+		],
+}
+p magic_bag 
+p magic_bag [:deck_of_cards][:diamonds][0 .. 3]
+p magic_bag [:change_of_clothes].first.upcase
