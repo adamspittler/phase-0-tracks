@@ -34,15 +34,12 @@ def create_list(grocery_list)
   grocery_array.each do |x|
     grocery_hash[x] = 1
   end
+  
   return grocery_hash
 end
 
-def add_item(hash_name, item, *qty)
-  if qty.class == Array 
-    hash_name[item] = 1
-  else 
-    hash_name[item] = qty
-  end
+def add_item(hash_name, item, qty = 1)
+  hash_name[item] = qty
   hash_name
 end
 
@@ -62,13 +59,20 @@ def print_list(hash_name)
     puts "#{qty} #{item}"
   end
 end
+
 #### DRIVER CODE
+p new_list = create_list("cucumbers carrots")
+p new_list = add_item(new_list,"Lemonade", 2)
+p new_list = add_item(new_list,"Tomatoes",3)
+p new_list = add_item(new_list,"Onions",1)
+p new_list = add_item(new_list,"Ice Cream", 4)
+p new_list = remove_item(new_list,"Lemonade")
+p new_list = update_item(new_list,"Ice Cream", 1)
+print_list(new_list)
+
 p katys_list = create_list("icecream cookies chocolate")
 p katys_list = add_item(katys_list, "brownies", 7)
 p katys_list = add_item(katys_list, "apples")
 p katys_list = remove_item(katys_list, "cookies")
 p katys_list = update_item(katys_list, "brownies", 3)
 print_list(katys_list)
-#another_list = create_list ("bread")
-# p katys_list = {"apples"=> 2, "carrots" => 3}
-#p katys_list = add_item(katys_list, "brownies", 7)
