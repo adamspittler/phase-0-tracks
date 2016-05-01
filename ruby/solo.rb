@@ -73,7 +73,7 @@ end
 
 mosquitos = []
 mosquito_name = ["Buzzy", "Sucky", "Stabby", "Zeke", "Blood Sucka", "Mr. Bite You", "Mary Laria", "Bill the Butcher", "Sting", "Little Evil", "Tu Fang", "Succubus", "Buzz Aldrin", "Christopher Columbuzz", "Juicy Lucy", "Typhoid Mary", "Blood Bourne", "Smudge Judy"]
-puts "Do you want to open the window this afternoon?"
+puts "Do you want to open the window this evening?"
 window_open = gets.chomp
 until window_open == "yes" or window_open == "no"
 	puts "Please answer yes or no."
@@ -88,6 +88,57 @@ end
  			mosquitos.each do |mosquito|
 				mosquito.about
 			end
+
+
+			puts "do you want to try to kill the mosquitos, or go to bed"
+			kill_or_bed = gets.chomp
+			
+			until kill_or_bed == "kill the mosquitos" or kill_or_bed == "go to bed"
+				puts "Please answer kill the mosquitos, or go to bed"
+				kill_or_bed = gets.chomp
+			end	
+
+			if kill_or_bed == "kill the mosquitos"
+					mosquitos.each do |mosquito|
+						mosquito.swat
+					end
+					puts ""
+					mosquitos.each do |mosquito|
+						mosquito.about
+					end
+					puts "Now you're tired and you need to sleep."
+					mosquitos.each do |mosquito|
+						mosquito.sleep_the_night
+					end
+				
+				else 
+					mosquitos.each do |mosquito|
+						mosquito.sleep_the_night
+					 
+					end
+			end
+
+			puts "Do you want to open the window again the next evening?"
+			window_open = gets.chomp
+			until window_open == "yes" or window_open == "no"
+				puts "Please answer yes or no."
+				window_open = gets.chomp
+			end	
+			if window_open == "yes" 
+						rand(2..6).times do |making_mosquitos|
+						mosquitos << Mosquito.new(mosquito_name.sample, rand(0..5))
+						end
+						puts "you let some mosquitos in"
+			 			puts ""
+			 			mosquitos.each do |mosquito|
+							mosquito.about
+						end
+				else puts "well at least you didn't let any more in."
+					mosquitos.length.to_i = index
+					p index
+			end		
+
+
 
 
 
