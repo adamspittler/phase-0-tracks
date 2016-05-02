@@ -61,13 +61,15 @@ class Mosquito
 
 	def swat
 		random_number = rand(1..10)
-		if random_number > 4 && @has_sucked_blood == true
-			puts "You killed #{@name}, and now you have a gross blood stain on your wall" 
+		if random_number > 4 && @has_sucked_blood == true && @has_been_killed == false
+			puts "You killed #{@name}, and now you have a gross blood stain on your wall." 
 			@has_been_killed = true
-			elsif random_number > 4 && @has_sucked_blood == false
-			puts "Good for you, you killed #{@name} before it could bite you"
+			elsif random_number > 4 && @has_sucked_blood == false && @has_been_killed == false
+			puts "Good for you, you killed #{@name} before it could bite you."
 			@has_been_killed = true
-			else puts "Too slow!! you missed #{@name}"
+			elsif random_number < 5 && @has_been_killed == false
+			puts "Too slow!! you missed #{@name}."
+		else
 		end
 		
 	end
@@ -76,10 +78,10 @@ class Mosquito
 		@age += 1
 		body_part = ["head", "neck", "chest", "left arm", "right arm", "stomach", "back", "left leg", "right leg", "ear", "nose", "forehead", "left foot", "right leg"]
 		random_number = rand(1..10)
-		if random_number > 5 && @has_been_killed == false
-			puts "#{@name} has bit you and now you have a welt on your #{body_part.sample}"
+		if random_number > 4 && @has_been_killed == false
+			puts "#{@name} has bit you and now you have a welt on your #{body_part.sample}."
 			@has_sucked_blood = true
-			elsif  random_number > 5 && @has_been_killed == true
+			elsif  @has_been_killed == true
 			#puts "#{@name} didn't bite you because it's dead"
 			else	
 			puts "#{@name} didn't bite you tonight, but continues to buzz around."
@@ -89,24 +91,28 @@ class Mosquito
 
 	def stats
 		if @has_been_killed == true && @has_sucked_blood == false
-			puts "#{@name}, #{@age}days old is now stuck to your wall, and never got the pleasure of biting you."
+			puts "#{@name}, #{@age} days old is now stuck to your wall."
 			elsif @has_been_killed == true && @has_sucked_blood == true
-				puts "#{@name}, #{@age}days old is now a blood stain on your wall"
+				puts "#{@name}, #{@age} days old is now a blood stain on your wall."
 			elsif @has_been_killed == false && @has_sucked_blood == true
-				puts "#{@name}, #{@age}days old is a happy and full mosquito"
-			else puts "#{@name}, #{@age}days old never bit you but avoided smashing"
+				puts "#{@name}, #{@age} days old is a happy and full mosquito."
+			else puts "#{@name}, #{@age} days old never bit you but avoided smashing."
 		end
-		
+	puts""	
 	end
 
 
 end
 
-#driver code
+# driver code.
+# User interface is a simple set of steps that allows them to try all the methods.
 
 mosquitos = []
+# Names incase the program has to generate random mosquitos.
 mosquito_name = ["Buzzy", "Sucky", "Stabby", "Zeke", "Blood Sucka", "Mr. Bite You", "Mary Laria", "Bill the Butcher", "Sting", "Little Evil", "Tu Fang", "Succubus", "Buzz Aldrin", "Christopher Columbuzz", "Juicy Lucy", "Typhoid Mary", "Blood Bourne", "Smudge Judy"]
 
+
+# User initializes any number of mosquitos.
 puts "How many mosquitos would you like to make?"
 mosquito_number = gets.chomp.to_i
 until mosquito_number.class == Fixnum
@@ -118,6 +124,8 @@ mosquito_number.times do |making_mosquitos|
  	mosquitos << Mosquito.new("N/A", "N/A")
 end
 
+
+# User gives name and age values through get_info method.
 puts "please enter a name and an age for each mosquito."
 
 mosquitos.each do |mosquito|
@@ -126,6 +134,7 @@ end
 
 puts ""
 
+# Opening the window initializes a random number of mosquitos.
 puts "would you like to leave the window open?"
 window_open = gets.chomp
 until window_open == "yes" or window_open == "no"
@@ -133,7 +142,7 @@ until window_open == "yes" or window_open == "no"
 	window_open = gets.chomp
 end
 if window_open == "yes"
-	rand(2..10).times do |making_mosquitos|
+	rand(3..10).times do |making_mosquitos|
 	
 	 	mosquitos << Mosquito.new(mosquito_name.sample, rand(0..5))
 	 	end
@@ -143,6 +152,7 @@ end
 
 puts ""
 
+# Gives user a quick count of the mosquitos.
 puts "would you like to know how many are in here now?"
 how_many = gets.chomp
 until how_many == "yes" or how_many == "no"
@@ -153,13 +163,14 @@ end
 puts ""
 
 if how_many == "yes"
-	p "there are #{mosquitos.length}"
+	puts "There are #{mosquitos.length} mosquitos now."
 	else
 		puts "I guess it's better not to know."
 end
 
 puts ""
 
+# Swat method kills some of the mosquitos and changes their has been killed status to true.
 puts "would you like to try to kill them?"
 kill_try = gets.chomp
 until kill_try == "yes" or kill_try == "no"
@@ -176,13 +187,14 @@ end
 
 puts ""
 
-puts "would you like to know how many are left?"
+# Status method gives a simple report on the remaining mosquitos that are still alive.
+puts "would you like to know which mosquitos are left?"
 status = gets.chomp
 until status == "yes" or status == "no"
 	puts "please answer yes or no."
 	status = gets.chomp
 end
-if kill_try == "yes"
+if status == "yes"
 	mosquitos.each do |mosquito|
 	mosquito.about
 end
@@ -194,6 +206,8 @@ end
 puts ""	
 puts "ok time ot go to bed"
 puts ""
+
+# Sleep the night method allows the living mosquitos to try to bite, if they are sucessfull, has sucked blood becomes true.
 mosquitos.each do |mosquito|
 	mosquito.sleep_the_night
   
@@ -201,6 +215,7 @@ end
 
 puts ""
 
+# Swat method again, if a mosquito is killed while has sucked blood is true it leaves a blood stain.
 puts "would you like to try to kill them again?"
 kill_try = gets.chomp
 until kill_try == "yes" or kill_try == "no"
@@ -217,6 +232,7 @@ end
 
 puts ""
 
+# Stats method gives a complete rundown of the status of each mosquito.
 puts "would you like to know the status of the mosquitos?"
 know_stats = gets.chomp 
 until know_stats == "yes" or know_stats == "no"
@@ -231,29 +247,3 @@ end
 	else puts "ok"
 end
 
-#rand(2..10).times do |making_mosquitos|
-#
-# 	mosquitos << Mosquito.new(mosquito_name.sample, rand(0..5))
-# 	end
-#
-#mosquitos.each do |mosquito|
-#  mosquito.about
-#end
-#  
-#
-#mosquitos.each do |mosquito|
-#	mosquito.sleep_the_night
-#  
-#end
-#
-#mosquitos.each do |mosquito|
-#	mosquito.swat
-#
-#end
-#
-#mosquitos.each do |mosquito|
-#  mosquito.about
-#end
-#
-##p mosquitos
-#end
