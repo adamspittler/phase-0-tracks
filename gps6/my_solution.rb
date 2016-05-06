@@ -19,7 +19,7 @@ class VirusPredictor
  end
 
 # runs predicted_deaths and speed_of_spread methods
- private
+ #private
  def virus_effects
    predicted_deaths
    speed_of_spread
