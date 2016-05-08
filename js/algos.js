@@ -1,18 +1,67 @@
-// define an array as a variable.
-// define an empty array for the length or the strings in the first array
-// run a loop to add the string lengths to the second array
-// find the index of the highest value in the string length array.
-// return the string at the same index in the original array.
-
+// Release 0
+// Define an array as a variable.
+// Define an empty array for the length or the strings in the first array
+// Run a loop to add the string lengths to the second array
+// Find the index of the highest value in the string length array.
+// Return the string at the same index in the original array.
 function find_longest(ary) {
-var str_length_array = [];
-for (var i = 0; i < ary.length; i++) {
-	str_length_array.push(ary[i].length);
-}
-var largest = Math.max.apply(Math, str_length_array);
-var largest_index = (str_length_array.indexOf(largest));
-console.log(ary[largest_index]);
+	var str_length_array = [];
+	for (var i = 0; i < ary.length; i++) {
+		str_length_array.push(ary[i].length);
+	}
+	var largest = Math.max.apply(Math, str_length_array);
+	var largest_index = (str_length_array.indexOf(largest));
+	console.log(ary[largest_index]);
 }
 
+
+// Release 1
+// Create a function that takes two hash/objects as arguements.
+// Set match value to begin as false.
+// Create variables out of the keys in the objects.
+// Check if the keys match with the key variables.
+// Check if the values match useing the key variables to access the values.
+function check_match(obj1, obj2) {
+	var	match = false;
+	for ( var obj1_key in obj1 ) {
+		for ( var obj_2key in obj2) {
+			if (obj1_key == obj_2key) {
+				if (obj1[(obj1_key)] == obj2[(obj_2key)]) {
+					match = true;
+				}
+			}
+		}
+	}
+	if (match === true) {
+		console.log('there is a match');}
+	else {
+		console.log('there is no match');
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//DRIVERCODE
 find_longest(["long phrase","longest phrase","longer phrase"]);
 find_longest(["brain dead coding","rusty sleeper","bla"]);
+
+check_match(({name: "Steven", age: 54}), ({name: "Tamir", age: 54}));
