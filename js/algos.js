@@ -32,6 +32,7 @@ function check_match(obj1, obj2) {
 			}
 		}
 	}
+	// Prints match status.
 	if (match === true) {
 		console.log('there is a match');}
 	else {
