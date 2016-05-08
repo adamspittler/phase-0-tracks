@@ -4,20 +4,15 @@
 // find the index of the highest value in the string length array.
 // return the string at the same index in the original array.
 
-var ary = ["long phrase","longest phrase","longer phrase"];
+function find_longest(ary) {
 var str_length_array = [];
-
-
 for (var i = 0; i < ary.length; i++) {
-str_length_array.push(ary[i].length);
+	str_length_array.push(ary[i].length);
+}
+var largest = Math.max.apply(Math, str_length_array);
+var largest_index = (str_length_array.indexOf(largest));
+console.log(ary[largest_index]);
 }
 
-//console.log(str_length_array);
-//console.log(ary);
-
-var largest = Math.max.apply(Math, str_length_array);
-
-
-var largest_index = (str_length_array.indexOf(largest));
-
-console.log(ary[largest_index]);
+find_longest(["long phrase","longest phrase","longer phrase"]);
+find_longest(["brain dead coding","rusty sleeper","bla"]);
