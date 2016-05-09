@@ -18,5 +18,5 @@ function reverse(string) {
 // DRIVER CODE
 var x = 9
 if (10 > x) {
-(reverse("cheese danish"))
+	(reverse("cheese danish"))
 }
