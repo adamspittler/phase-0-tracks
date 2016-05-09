@@ -5,18 +5,18 @@
 // define an empty variable reversed
 // put the charactor at index i into reversed.
 
-
-
-var str = 'hello';
-var reversed = '';
-
-
-for (var i = str.length - 1 ; i >= 0; i--) {
-	
-	 reversed = reversed + (str[i]);
-
-	 console.log (str[i]);
+function reverse(string) {
+	var str = string
+	var reversed = '';
+	for (var i = str.length - 1 ; i >= 0; i--) {
+		reversed = reversed + (str[i]);
+		//console.log (str[i]);
+	}
+	console.log (reversed);
 }
 
-console.log (reversed);
- 
+// DRIVER CODE
+var x = 9
+if (10 > x) {
+	(reverse("cheese danish"))
+}
