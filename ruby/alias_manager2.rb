@@ -1,34 +1,50 @@
 # Method: takes a string(user input). 
 # Down cases the string.
-# Iterates through the string to add to a hash.
-# Returns hash of each character and space as key with unassigned values.
-
-# Method: takes hash with blank values.
-# Iterates through and adds values of "vowel", "consonant" or "other" to the hash keys.
-# Returns hash.
-
-# Method: takes hash.
+# splits the string into individual single character strings and adds them to an array.
+# #returns array
+def splitter(input)
+ array = input.downcase.split('')
+end
+ 
+# Method: takes array of strings.
 # contains an array of vowels.
-# Iterates through and and if a key has the value "vowel":
-# checks to see what the index is of the matching vowel in the array.
+# Iterates through the array using map! 
+# If character matches a vowel:
+# Contains a second array of vowels that includes a second "a" at the end"
+# Checks to see what the index is of the matching vowel in the array.
 # Replaces vowel with next vowel by index.
-# Except "u" automatically becomes "a".
-# Returns hash.
+# Returns array
+def vowel_checker(array_of_char)
+  array_of_char.map! do | char |
+    vowels = ["a", "e", "i", "o", "u"]
+    if vowels.include? char
+      vowel_index = ["a", "e", "i", "o", "u", "a",]
+      i = vowel_index.index(char) + 1
+      char = vowel_index[i] 
+    else char = char
+    end
+  end
+  array_of_char
+end
 
-# Method: takes hash.
-# contains an array of consonants.
-# Iterates through and and if a key has the value "consonant":
-# checks to see what the index is of the matching consonant in the array.
-# Replaces consonant with next consonant by index.
-# Except "z" automatically becomes "b".
-# Returns hash.
+# Method: same exact thing as vowel checker but with consonants.
+def consonant_checker(array_of_char)
+  array_of_char.map! do | char |
+    consonants = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+    if consonants.include? char
+      consonant_index = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z', 'b']
+      i = consonant_index.index(char) + 1
+      char = consonant_index[i] 
+    else char = char
+    end
+  end
+  array_of_char
+end
 
-# Method: takes hash.
-# Iterates through hash and adds the values to a string.
-# Returns string.
-
-# Method: takes string.
-# splits the string into separate "word' strings.
+p consonant_checker(vowel_checker(splitter("adam spittler")))
+# Method: takes array.
+# turns the array into a single string
+# splits the string into separate 'word' strings.
 # Reverses order the word strings.
 # Capitalizes words.
 # Combines words to a string.
