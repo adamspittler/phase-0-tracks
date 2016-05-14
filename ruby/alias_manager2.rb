@@ -6,9 +6,9 @@ def splitter(input)
  array = input.downcase.split('')
 end
  
-# Method: takes array of strings.
-# contains an array of vowels.
-# Iterates through the array using map! 
+# Method: takes array.
+# contains an array of all vowels.
+# Iterates through the inputted array using map! 
 # If character matches a vowel:
 # Contains a second array of vowels that includes a second "a" at the end"
 # Checks to see what the index is of the matching vowel in the array.
@@ -41,8 +41,6 @@ def consonant_rep(array_of_char)
   array_of_char
 end
 
-#p consonant_rep(vowel_rep(splitter("adam spittler")))
-
 # Method: takes array.
 # turns the array into a single string
 # splits the string into separate 'word' strings.
@@ -57,4 +55,14 @@ def recombiner (array_of_char)
   end
   new_name.join(' ')
 end
-p recombiner(consonant_rep(vowel_rep(splitter("adam spittler"))))
+#p recombiner(consonant_rep(vowel_rep(splitter("adam spittler"))))
+
+#USER INTERFACE
+puts "Enter name or type 'quit':"
+name = gets.chomp
+until name == 'quit'
+  puts "Fake name is: #{recombiner(consonant_rep(vowel_rep(splitter(name))))}." 
+  puts "Enter name or type 'quit':"
+  name = gets.chomp
+end
+
