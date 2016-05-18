@@ -31,3 +31,31 @@
   # This repeats until they quit.
   # When dice are rolled, calls roll the dice on all the instances of the dice and prints the results.
   # When user quits the contents of the array of dice.
+
+class Dice
+  attr_reader :number_of_sides, :times_rolled, :rolls
+  attr_accessor :color
+
+  def initialize(number_of_sides, color)
+    rolls = []
+    @number_of_sides = number_of_sides
+    @color = color
+    @times_rolled = 0
+    @rolls = rolls
+  end
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+dice = Dice.new(6, "black")
+p dice
