@@ -74,21 +74,28 @@ loop do
   shape = gets.chomp
   if shape.upcase.downcase == "tetrahedron"
     dice = Dice.new(4, color)
+    puts "You made an 4 sided die."
   elsif shape.upcase.downcase == "cube"
     dice = Dice.new(6, color)
+    puts "You made an 6 sided die."
   elsif shape.upcase.downcase == "octahedron"
     dice = Dice.new(8, color)
+    puts "You made an 8 sided die."
   elsif shape.upcase.downcase == "pentagonal trapezohedron"
     dice = Dice.new(10, color)
+    puts "You made an 10 sided die."
   elsif shape.upcase.downcase == "dodecahedron"
     dice = Dice.new(12, color)
+    puts "You made an 12 sided die."
   elsif shape.upcase.downcase == "icosahedron"
-    dice = Dice.new(20, color)        
+    dice = Dice.new(20, color)
+    puts "You made an 20 sided die."        
   else puts "Please enter one of the following shapes common dice shapes: tetrahedron, cube, octahedron, pentagonal trapezohedron, dodecahedron or icosahedron."
   end
   dice_created << dice
   break if dice_created != [nil]
  end
+
 #dice = Dice.new(6, "green")
 # dice.roll_the_dice
 # dice.roll_multiple_times(2)
