@@ -1,5 +1,5 @@
 # Define a class; dice. 
-  # Has attr reader for number of sides, rolls and number of times rolled. 
+  # Has attr reader for number of sides, total_rolls and number of times rolled. 
   # Has attr accessor for color.
 
 
@@ -9,17 +9,17 @@
       #number of sides 
       #color 
       #number of times rolled.
-      #rolls (in an array)
+      #total_rolls (in an array)
     # Adds dice and attributes to array of dice.
 
   # Class method: Roll the dice,
     # Raises number of times rolled by one. 
-    # Adds the result of the roll to the rolls array for the instance of the dice.
+    # Adds the result of the roll to the total_rolls array for the instance of the dice.
     # Returns: A random number between 1 and the number of sides.
 
   # Class method: Roll the dice multiple times, takes argument for number of times.
     # Raises number of times rolled by number of times.
-    # Adds the result of each roll to the rolls array for the instance of the dice.
+    # Adds the result of each roll to the total_rolls array for the instance of the dice.
     # Prints: A random number between 1 and the number of sides for each number of times
     # Returns and prints: a sum of each roll.
 
@@ -33,23 +33,34 @@
   # When user quits the contents of the array of dice.
 
 class Dice
-  attr_reader :number_of_sides, :times_rolled, :rolls
+  attr_reader :number_of_sides, :times_rolled, :total_rolls
   attr_accessor :color
 
   def initialize(number_of_sides, color)
-    rolls = []
+    total_rolls = []
     @number_of_sides = number_of_sides
     @color = color
     @times_rolled = 0
-    @rolls = rolls
+    @total_rolls = total_rolls
   end
 
+  def roll_the_dice
+    @times_rolled += 1
+    dice_roll = rand(@number_of_sides) + 1
+    total_rolls << dice_roll
+    dice_roll
+  end  
 
-
-
-
-
-
+  def roll_multiple_times(number_of_times)
+    rolls = []
+    @times_rolled += number_of_times
+    number_of_times.times do
+      dice_roll = rand(@number_of_sides) + 1
+      total_rolls << dice_roll
+      rolls << dice_roll
+    end
+    rolls
+  end
 
 
 
@@ -58,4 +69,7 @@ class Dice
 end
 
 dice = Dice.new(6, "black")
+dice.roll_multiple_times(3)
+
+#p dice.roll_the_dice
 p dice
