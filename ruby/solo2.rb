@@ -62,14 +62,46 @@ class Dice
     rolls
   end
 
-
-
-
-
 end
 
-dice = Dice.new(6, "black")
-dice.roll_multiple_times(3)
+dice_created = []
 
-#p dice.roll_the_dice
-p dice
+puts "DICE!!!!!!"
+puts "what color would you like  your die to be?"
+color = gets.chomp
+loop do
+  puts "What shape would you like your die to be?"
+  shape = gets.chomp
+  if shape.upcase.downcase == "tetrahedron"
+    dice = Dice.new(4, color)
+  elsif shape.upcase.downcase == "cube"
+    dice = Dice.new(6, color)
+  elsif shape.upcase.downcase == "octahedron"
+    dice = Dice.new(8, color)
+  elsif shape.upcase.downcase == "pentagonal trapezohedron"
+    dice = Dice.new(10, color)
+  elsif shape.upcase.downcase == "dodecahedron"
+    dice = Dice.new(12, color)
+  elsif shape.upcase.downcase == "icosahedron"
+    dice = Dice.new(20, color)        
+  else puts "Please enter one of the following shapes common dice shapes: tetrahedron, cube, octahedron, pentagonal trapezohedron, dodecahedron or icosahedron."
+  end
+  dice_created << dice
+  break if dice_created != [nil]
+ end
+#dice = Dice.new(6, "green")
+# dice.roll_the_dice
+# dice.roll_multiple_times(2)
+#dice_created << dice
+#
+#dice = Dice.new(8, "white")
+# dice.roll_the_dice
+# dice.roll_multiple_times(2)
+#dice_created << dice
+#
+#dice_created.each do | x |
+#  p x.roll_the_dice
+#end
+#
+#p dice_created
+#
