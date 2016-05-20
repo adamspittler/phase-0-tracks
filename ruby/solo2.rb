@@ -31,7 +31,6 @@
   # This repeats until they quit.
   # When dice are rolled, calls roll the dice on all the instances of the dice and prints the results.
   # When user quits the contents of the array of dice.
-
 class Dice
   attr_reader :number_of_sides, :times_rolled, :total_rolls
   attr_accessor :color
@@ -62,40 +61,53 @@ class Dice
     rolls
   end
 
+  def about
+    puts "A #{@color} #{@number_of_sides} sided die that rolled #{@times_rolled} times: #{@total_rolls}."
+  end
+
 end
 
 dice_created = []
 
-puts "DICE!!!!!!"
-puts "what color would you like  your die to be?"
-color = gets.chomp
-loop do
-  puts "What shape would you like your die to be?"
-  shape = gets.chomp
-  if shape.upcase.downcase == "tetrahedron"
-    dice = Dice.new(4, color)
-    puts "You made an 4 sided die."
-  elsif shape.upcase.downcase == "cube"
-    dice = Dice.new(6, color)
-    puts "You made an 6 sided die."
-  elsif shape.upcase.downcase == "octahedron"
-    dice = Dice.new(8, color)
-    puts "You made an 8 sided die."
-  elsif shape.upcase.downcase == "pentagonal trapezohedron"
-    dice = Dice.new(10, color)
-    puts "You made an 10 sided die."
-  elsif shape.upcase.downcase == "dodecahedron"
-    dice = Dice.new(12, color)
-    puts "You made an 12 sided die."
-  elsif shape.upcase.downcase == "icosahedron"
-    dice = Dice.new(20, color)
-    puts "You made an 20 sided die."        
-  else puts "Please enter one of the following shapes common dice shapes: tetrahedron, cube, octahedron, pentagonal trapezohedron, dodecahedron or icosahedron."
-  end
-  dice_created << dice
-  break if dice_created != [nil]
- end
+def dice_maker(input)
+  color = input.split('').delete_if {|letter| letter.include?"0" or letter.include?"1"or letter.include?"2" or letter.include?"3" or letter.include?"4" or letter.include?"5" or letter.include?"6" or letter.include?"7" or letter.include?"8" or letter.include?"9"}.join.strip
+  sides = input.delete(color).strip
+  dice = Dice.new(sides.to_i, color)
+  puts "You made a #{color} die with #{sides} sides."
+  dice
+end
 
+def roll_all_dice(dice)
+  rolls = []
+  dice.each do |die|
+    rolls << die.roll_the_dice
+  end
+  rolls
+end
+puts "DICE MAKER"
+puts "Dice usually have 6 sides but not always."
+puts "Please enter color and number of sides." 
+input = gets.chomp
+dice_created << dice_maker(input)
+puts "how many times would you like to roll it?"
+times = gets.chomp.to_i
+puts "You rolled: #{dice_maker(input).roll_multiple_times(times)}"
+
+loop do
+  puts "Roll all the dice you made, make another or be done?"
+  answer = gets.chomp
+  break if answer.upcase.downcase == "done"
+  if answer.upcase.downcase.include? "roll"
+    puts "you rolled #{roll_all_dice(dice_created)}."
+  else puts "Please enter color and number of sides."
+    input = gets.chomp
+    dice_created << dice_maker(input)
+  end
+end
+puts "You made:"
+dice_created.each do | x |
+  x.about
+end
 #dice = Dice.new(6, "green")
 # dice.roll_the_dice
 # dice.roll_multiple_times(2)
@@ -107,8 +119,9 @@ loop do
 #dice_created << dice
 #
 #dice_created.each do | x |
-#  p x.roll_the_dice
+#   x.roll_the_dice
 #end
-#
-#p dice_created
-#
+
+
+
+
