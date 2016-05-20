@@ -1,8 +1,6 @@
-# Define a class; dice. 
+# Define a class: dice. 
   # Has attr reader for number of sides, total_rolls and number of times rolled. 
   # Has attr accessor for color.
-
-
 
   # Class method: Initialize, takes arguments for number of sides and color.
     # Attributes: 
@@ -12,7 +10,7 @@
       #total_rolls (in an array)
     # Adds dice and attributes to array of dice.
 
-  # Class method: Roll the dice,
+  # Class method: Roll the dice.
     # Raises number of times rolled by one. 
     # Adds the result of the roll to the total_rolls array for the instance of the dice.
     # Returns: A random number between 1 and the number of sides.
@@ -23,18 +21,44 @@
     # Prints: A random number between 1 and the number of sides for each number of times
     # Returns and prints: a sum of each roll.
 
-# Define array for dice.
+  # Class method: About.
+    # Returns a string that lists the attributes of that instance.
 
-# User input: prompt user to create a die. Ask for number of sides and color.
-  # Makes new instance of dice.
-  # Prompts user would they like to roll the dice or make another instance of dice or quit.
-  # This repeats until they quit.
-  # When dice are rolled, calls roll the dice on all the instances of the dice and prints the results.
-  # When user quits the contents of the array of dice.
+# Define array to store dice info.
+
+# Non class methods to be used in user interface:
+  
+  # Method: Dice Maker, takes a string.
+  # Color value splits the string into an array of characters and deletes the numbers before rejoining.
+  # Sides value removes the color value from the string leaving only integers.
+  # Initializes a new instance of dice using above values.
+  # Prints string about new dice.
+  # Returns the dice.
+
+  # Method: Roll all the dice, takes an array of dice(from the dice created array).
+    # Defines an array called rolls.
+    # Calls roll the dice on on each instance of dice in the inputted array.
+    # Adds the result to rolls.
+    #Returns rolls array. 
+
+# USER INTERFACE
+  # Prompts the user to input a string.
+  # Calls dice maker method on the string and adds the result to dice created array.
+  # Prompts user for a number.
+  # Calls the roll multiple times method on the contents of the dice created array with the argument of the inputted number.
+  # Runs loop prompting user to roll all the dice make another one or be done.
+  # Breaks if input is the word done.
+  # IF input includes the string "roll" calls roll all dice method.
+  # ELSE Prompts the user to input a string.
+  # Calls dice maker method on the string and adds the result to dice created array.
+  # When loop breaks, calls the about method on the instances in the dice created array and prints the result.
+
+# CLASS
 class Dice
   attr_reader :number_of_sides, :times_rolled, :total_rolls
   attr_accessor :color
 
+# CLASS METHODS
   def initialize(number_of_sides, color)
     total_rolls = []
     @number_of_sides = number_of_sides
@@ -52,23 +76,25 @@ class Dice
 
   def roll_multiple_times(number_of_times)
     rolls = []
-    @times_rolled += number_of_times
     number_of_times.times do
       dice_roll = rand(@number_of_sides) + 1
       total_rolls << dice_roll
       rolls << dice_roll
+      @times_rolled += 1
     end
     rolls
   end
 
   def about
-    puts "A #{@color} #{@number_of_sides} sided die that rolled #{@times_rolled} times: #{@total_rolls}."
+     "A #{@color} #{@number_of_sides} sided die that rolled #{@times_rolled} times: #{@total_rolls}."
   end
 
 end
 
+# DATA STRUCTURE
 dice_created = []
 
+# NON CLASS METHODS
 def dice_maker(input)
   color = input.split('').delete_if {|letter| letter.include?"0" or letter.include?"1"or letter.include?"2" or letter.include?"3" or letter.include?"4" or letter.include?"5" or letter.include?"6" or letter.include?"7" or letter.include?"8" or letter.include?"9"}.join.strip
   sides = input.delete(color).strip
@@ -84,6 +110,8 @@ def roll_all_dice(dice)
   end
   rolls
 end
+
+# USER INTERFACE
 puts "DICE MAKER"
 puts "Dice usually have 6 sides but not always."
 puts "Please enter color and number of sides." 
@@ -91,8 +119,10 @@ input = gets.chomp
 dice_created << dice_maker(input)
 puts "how many times would you like to roll it?"
 times = gets.chomp.to_i
-puts "You rolled: #{dice_maker(input).roll_multiple_times(times)}"
-
+puts "You rolled:" 
+dice_created.each do | x |
+  p x.roll_multiple_times(times)
+end
 loop do
   puts "Roll all the dice you made, make another or be done?"
   answer = gets.chomp
@@ -106,21 +136,9 @@ loop do
 end
 puts "You made:"
 dice_created.each do | x |
-  x.about
+  puts x.about
 end
-#dice = Dice.new(6, "green")
-# dice.roll_the_dice
-# dice.roll_multiple_times(2)
-#dice_created << dice
-#
-#dice = Dice.new(8, "white")
-# dice.roll_the_dice
-# dice.roll_multiple_times(2)
-#dice_created << dice
-#
-#dice_created.each do | x |
-#   x.roll_the_dice
-#end
+
 
 
 
