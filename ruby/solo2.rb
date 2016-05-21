@@ -1,25 +1,26 @@
-# Define a class: dice. 
+# Define class: dice. 
   # Has attr reader for number of sides, total_rolls and number of times rolled. 
   # Has attr accessor for color.
 
+# Class methods:
   # Class method: Initialize, takes arguments for number of sides and color.
     # Attributes: 
-      #number of sides 
-      #color 
-      #number of times rolled.
-      #total_rolls (in an array)
-    # Adds dice and attributes to array of dice.
-
+      # Number of sides 
+      # Color 
+      # number of times rolled.
+      # Total_rolls (in an array)
+    
   # Class method: Roll the dice.
     # Raises number of times rolled by one. 
     # Adds the result of the roll to the total_rolls array for the instance of the dice.
     # Returns: A random number between 1 and the number of sides.
 
   # Class method: Roll the dice multiple times, takes argument for number of times.
-    # Raises number of times rolled by number of times.
+    # Defines an array for rolls
+    # For each number of times argument, a random number between 1 and the number of sides is generated.
     # Adds the result of each roll to the total_rolls array for the instance of the dice.
-    # Prints: A random number between 1 and the number of sides for each number of times
-    # Returns and prints: a sum of each roll.
+    # Raises number of times rolled by number of times.
+    # Returns rolls array.
 
   # Class method: About.
     # Returns a string that lists the attributes of that instance.
@@ -27,29 +28,28 @@
 # Define array to store dice info.
 
 # Non class methods to be used in user interface:
-  
-  # Method: Dice Maker, takes a string.
-  # Color value splits the string into an array of characters and deletes the numbers before rejoining.
-  # Sides value removes the color value from the string leaving only integers.
-  # Initializes a new instance of dice using above values.
-  # Prints string about new dice.
-  # Returns the dice.
+  # Method: Dice maker, takes a string.
+    # Color value splits the string into an array of characters and deletes the numbers before rejoining.
+    # Sides value removes the color value from the string leaving only integers.
+    # Initializes a new instance of dice using above values.
+    # Prints string about new dice.
+    # Returns the dice.
 
   # Method: Roll all the dice, takes an array of dice(from the dice created array).
     # Defines an array called rolls.
     # Calls roll the dice on on each instance of dice in the inputted array.
     # Adds the result to rolls.
-    #Returns rolls array. 
+    # Returns rolls array. 
 
-# USER INTERFACE
-  # Prompts the user to input a string.
+# User interface:
+  # Prompt the user to input a string.
   # Calls dice maker method on the string and adds the result to dice created array.
-  # Prompts user for a number.
+  # Prompt user for a number.
   # Calls the roll multiple times method on the contents of the dice created array with the argument of the inputted number.
   # Runs loop prompting user to roll all the dice make another one or be done.
   # Breaks if input is the word done.
   # IF input includes the string "roll" calls roll all dice method.
-  # ELSE Prompts the user to input a string.
+  # ELSE Prompt the user to input a string.
   # Calls dice maker method on the string and adds the result to dice created array.
   # When loop breaks, calls the about method on the instances in the dice created array and prints the result.
 
