@@ -10,7 +10,6 @@
 // }
 // console.log(horses);
 
-
 // FUNCTION
 function Car(make, color, fuelMileage) {
 console.log("our car:", this);
