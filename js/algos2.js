@@ -20,7 +20,6 @@ function findLongest(ary) {
 // Creates variables out of the keys in the objects.
 // Checks if the keys match with the key variables.
 // Checks if the values match using the key variables to access the values.
-// IF there is a match, prints string, ELSE prints string.
 // Returns match boolean value.
 
 function checkMatch(obj1, obj2) {
@@ -34,12 +33,7 @@ function checkMatch(obj1, obj2) {
       }
     }
   }
-  if (isMatch === true) {
-    console.log('Objects match');
-  }
-  else {
-    console.log('Objects do not match');
-  }
   return isMatch
 }
 console.log(checkMatch({name: "Steven", age: 53}, {name: "Tamir", age: 54})); 
+console.log(checkMatch({name: "Steven", age: 53}, {name: "Steven", age: 54})); 
