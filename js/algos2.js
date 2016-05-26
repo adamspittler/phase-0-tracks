@@ -1,4 +1,4 @@
-// Function: findLongest, Takes an array.
+// FUNCTION: findLongest, Takes an array.
 // Defines an empty array for the length of the strings in the array.
 // Runs a loop to add the string lengths to the second array.
 // Finds the index of the highest value in the string length array.
@@ -12,6 +12,34 @@ function findLongest(ary) {
   var largest = Math.max.apply(Math, strLengthArray);
   return (ary[(strLengthArray.indexOf(largest))]);
 }
+// DRIVERCODE:
+// console.log(findLongest(["long phrase","longest phrase","longer phrase"]));
 
-console.log(findLongest(["long phrase","longest phrase","longer phrase"]));
+// FUNCTION: checkMatch: takes two objects as arguments.
+// Sets variable isMatch value to begin as false.
+// Creates variables out of the keys in the objects.
+// Checks if the keys match with the key variables.
+// Checks if the values match using the key variables to access the values.
+// IF there is a match, prints string, ELSE prints string.
+// Returns match boolean value.
 
+function checkMatch(obj1, obj2) {
+  var isMatch = false;
+  for ( var obj1_key in obj1 ) {
+    for ( var obj_2key in obj2) {
+      if (obj1_key == obj_2key) {
+        if (obj1[(obj1_key)] == obj2[(obj_2key)]) {
+          isMatch = true;
+        }
+      }
+    }
+  }
+  if (isMatch === true) {
+    console.log('Objects match');
+  }
+  else {
+    console.log('Objects do not match');
+  }
+  return isMatch
+}
+console.log(checkMatch({name: "Steven", age: 53}, {name: "Tamir", age: 54})); 
