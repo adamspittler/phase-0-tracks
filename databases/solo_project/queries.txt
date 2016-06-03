@@ -1,0 +1,9 @@
+SELECT name, age, price FROM bottles;
+
+UPDATE bottles SET age=33 WHERE name="Laphroaig";
+
+SELECT * FROM bottles, regions WHERE bottles.region_id = regions.id;
+
+SELECT bottles.name, regions.name, bottles.age, bottles.price, regions.peeted FROM bottles JOIN regions ON bottles.region_id = regions.id;
+
+DELETE FROM bottles WHERE price > 100;
