@@ -37,29 +37,48 @@ def print_list(db)
   end
 end
 
+def formatter(input)
+  input = input.upcase.downcase.split(' ')
+  input.map! do | word |
+    word.capitalize + " "
+  end
+  input.join.chop
+end
+
 # add_song(db, 'Famous blue raincoat', 'Leonard Cohen', 10, 45)
 # delete_song_by_name(db, "Horses")
 # delete_song_by_artist(db, "Brian Eno")
 
 loop do 
-  another_song = "yes"
-  puts "Add song to database"
+  add_item = "Yes"
+  puts "Here is your database."
+  print_list(db)
+  puts "Would you like to add a song to the database?"
+  add_item = formatter(gets.chomp)
+  break if add_item != "Yes"
   puts "Enter title"
-  name = gets.chomp
+  name = formatter(gets.chomp)
   puts "Enter artist"
-  artist = gets.chomp
+  artist = formatter(gets.chomp)
   puts "Enter rating"
   rating = gets.chomp
   puts "Enter BPM"
   bpm = gets.chomp
   add_song(db, name, artist, rating, bpm)
-  puts "Would you like to add another song?"
-  another_song = gets.chomp.upcase.downcase
-  break if another_song != "yes"
+  end
+
+loop do
+  delete_item = "Yes"
+  puts "Here is your database."
+  print_list(db)
+  puts "Would you like to delete something?"
+  delete_item = formatter(gets.chomp)
+  break if delete_item != "Yes"
+  puts "Enter title or artist to delete."
+  to_delete = formatter(gets.chomp)
+  delete_song_by_name(db, to_delete)
+  delete_song_by_artist(db, to_delete)
 end
 
- 
-
-
-
+puts "Here is your database."
 print_list(db)
