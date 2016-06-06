@@ -1,6 +1,21 @@
+INSERT INTO regions (name, peeted) VALUES ("Islay", "true");
+INSERT INTO regions (name, peeted) VALUES ("Highland", "false");
+INSERT INTO regions (name, peeted) VALUES ("Speyside", "false");
+INSERT INTO regions (name, peeted) VALUES ("Lowland", "false");
+INSERT INTO regions (name, peeted) VALUES ("Campbeltown", "true");
+INSERT INTO regions (name, peeted) VALUES ("Islands", "true");
+
+INSERT INTO bottles (name, price, age, region_id ) VALUES ("Dalwhinnie", 50, 15, 2);
+INSERT INTO bottles (name, price, age, region_id ) VALUES ("Aberlour", 40, 12, 3);
+INSERT INTO bottles (name, price, age, region_id ) VALUES ("Auchentoshan", 65, 12, 4);
+INSERT INTO bottles (name, price, age, region_id ) VALUES ("Ardbeg", 45, 10, 1);
+INSERT INTO bottles (name, price, age, region_id ) VALUES ("Laphroaig", 1245, 32, 1);
+INSERT INTO bottles (name, price, age, region_id ) VALUES ("Highland Park", 80, 15, 6);
+
 SELECT name, age, price FROM bottles;
 
 UPDATE bottles SET age=33 WHERE name="Laphroaig";
+
 
 SELECT * FROM bottles, regions WHERE bottles.region_id = regions.id;
 
