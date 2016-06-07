@@ -1,0 +1,109 @@
+html {
+	background-color: #ffff99;	
+}
+
+#nav_box {
+ 	font-family: "helvetica", serif;
+ 	padding: 20px 30px;
+ 	border-radius: 5px;
+ 	margin: 20px auto;
+ 	max-width: 30%;
+ 	font-size: 1.2em;
+ 	float: left;
+ 	background-color: #b3ffff;
+}
+
+#main_content {
+	max-width: 960px;
+	width: 100%;	
+}
+
+.vid_label {
+	font-size: 1.1em;
+	float: right;
+	max-width: 20%;
+	border-radius: 2px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 10px;
+	padding-left: 2px;
+	background-color: #b3ffff;
+}
+
+.song_label {
+	font-size: 1.1em;
+	float: right;
+	max-width: 20%;
+	border-radius: 2px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 10px;
+	padding-left: 30px;
+	background-color: #b3ffff;
+}
+
+#vids {
+	max-width: 67%	
+}
+
+#table1 {
+	background-color: #b3ffff;
+}
+
+#pig {
+	float: right;
+	height: auto; 
+	width: auto; 
+	max-width: 450px; 
+	max-height: 450px;	
+}
+
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: #7a7a52;
+}
+
+/* mouse over link */
+a:hover {
+    color: #805500;
+}
+
+/* selected link */
+a:active {
+    color: white;
+}
+
+@media screen and (max-width: 500px) {
+  .song_label {
+    background-color: #e65c00;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #table1 {
+    background-color: #e65c00;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .vid_label{
+    background-color: #e65c00;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #nav_box {
+    background-color: #e65c00;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    float: none;
+  }
+}
