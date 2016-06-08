@@ -52,11 +52,11 @@
     <script>
       $(function() {
 
-        $("#sq").on("click", function() {
+        $("#sq").on("hover", function() {
         $(".sider").toggle(10000);
            });
         $("#sq").on("click", function() {
-        $("#main_content").toggle(10000);
+        $("#main_content").toggle(10000).css({color: "red", fontWeight: "bold"});
            });
 
 
