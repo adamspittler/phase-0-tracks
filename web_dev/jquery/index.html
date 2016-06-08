@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Assessment</title>
+  </head>
+  <body>
+    <section class="sidebar">
+        <p class="xxx">Dumpling wikis</p>
+        <ul id="sq">
+          <li><a href="https://en.wikipedia.org/wiki/Dumpling">dumpling wiki</a</li>
+          <li><a href="https://en.wikipedia.org/wiki/Empanada">another kind</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Clootie">ewww</a></li>
+        </ul>
+    </section>
+    <main id="main_content">
+      <section class="xxx">  
+            <h1>DUMPLINGS</h1> 
+            
+           </section> 
+      <section>
+        <h2>All About Dumplings</h2>
+        <img src="dumpling3.jpg" alt="dumplings" /> 
+        <p>this has no meaning.</p>
+        <p>but dumplings are good</p>
+        <p>have you had soup dumplings?</p>
+      </section>
+      <section>
+        <h3>Yeah Dumplings</h3>
+        <p>more nonsense</p>
+        <p>and some more</p>
+      
+      </section>
+      <section>
+        <h4>Yum</h4>
+        <p>bla bla bla</p>
+      </section>
+      
+        
+      <nav class="sider">
+        <h5>LINKS</h5>
+        <div>
+                <a href=pics.html>dumping pictures</a>
+              </div>
+              <div>
+                <a href=other.html>other</a>
+              </div>
+           </nav>
+      
+    </main>
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <script>
+      $(function() {
+
+        $("#sq").on("hover", function() {
+        $(".sider").toggle(10000);
+           });
+        $("#sq").on("click", function() {
+        $("#main_content").toggle(10000).css({color: "red", fontWeight: "bold"});
+           });
+
+
+
+      });
+
+    </script>
+    
+  </body>
+</html>
