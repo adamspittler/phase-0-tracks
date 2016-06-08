@@ -64,6 +64,14 @@ get '/numbers/:num1/:num2' do
   num2 = params[:num2].to_i
   output = num1 + num2
   "Numbers add up to: #{output}"
-  
 end
 
+get 'students/search/:age' do
+  search = db.execute("SELECT * FROM students WHERE age=?", [params[:age]])
+  search.to_s
+end
+
+get '/students/search/:campus' do
+ search = db.execute("SELECT * FROM students WHERE campus=?", [params[:campus]])
+ search.to_s
+end
