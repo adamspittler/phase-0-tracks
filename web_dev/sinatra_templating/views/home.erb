@@ -1,12 +1,18 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Student Management System</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Student Management System</h1>
+
+
+  <h3>Students:</h3>
   <p>Welcome to the student management system.</p>
   <p>Click <a href="students/new">here</a> to create a new student.</p>
+  <p>Click <a href="students/nyc_campus">here</a> to view students in NYC.</p>
+  <p>Click <a href="students/sf_campus">here</a> to view students in SF.</p>
+  <p>Click <a href="students/chi_campus">here</a> to view students in Chicago.</p>
   <ul>
     <% @students.each do |student| %>
       <li><%= student['name'] %>, <%= student['age'] %></li>
