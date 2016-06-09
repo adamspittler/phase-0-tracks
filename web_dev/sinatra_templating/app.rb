@@ -17,11 +17,28 @@ get '/students/new' do
   erb :new_student
 end
 
+get '/students/nyc_campus' do
+  @students = db.execute("SELECT name FROM students WHERE campus='NYC'")
+  erb :nyc_campus
+end 
+
+get '/students/sf_campus' do
+  @students = db.execute("SELECT name FROM students WHERE campus='SF'")
+  erb :sf_campus
+end 
+
+get '/students/chi_campus' do
+  @students = db.execute("SELECT name FROM students WHERE campus='CHI'")
+  erb :chi_campus
+end 
+
 # create new students via
 # a form
 post '/students' do
   db.execute("INSERT INTO students (name, campus, age) VALUES (?,?,?)", [params['name'], params['campus'], params['age'].to_i])
   redirect '/'
 end
+
+
 
 # add static resources

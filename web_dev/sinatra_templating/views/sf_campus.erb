@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SF Campus</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<p>SF</p>
+<ul>
+    <% @students.each do |student| %>
+      <li><%= student['name'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
